@@ -64,8 +64,19 @@ class introPage:
         self.CountTurn = 1 #Count to display player number in Temporary Score Board
 
     def startButtonPressed(self):
+       
         self.CountTurn = 1
         if int(self.PlayerNum.getText()) >= 2 and int(self.PlayerNum.getText()) <= 6 and int(self.WinScore.getText()) >= 10 and int(self.WinScore.getText()) <= 100:
+            
+            self.BankButton.setVisible(True)
+            self.RollButton.setVisible(True)
+            self.image.setVisible(True)
+            self.TempBoard.setVisible(True)
+            self.NameScore.setVisible(True)
+
+
+
+
             self.StartButton.setEnabled(False)
             self.PlayerNum.setEnabled(False)
             self.WinScore.setEnabled(False)
@@ -148,6 +159,12 @@ class introPage:
             AlrtTxt = "Congratulation!!! Player"+ str(self.CountTurn)  + " wins !!!!"
             Window.alert(AlrtTxt)
 
+            self.BankButton.setVisible(False)
+            self.RollButton.setVisible(False)
+            self.image.setVisible(False)
+            self.TempBoard.setVisible(False)
+            self.NameScore.setVisible(False)
+
             i = int(self.PlayerNum.getText())
             while i > 0:
                 self.NameScore. removeRow(i)
@@ -199,6 +216,7 @@ class introPage:
         self.NameScore.setCellSpacing(10)       
         self.NameScore.setCellPadding(10)
         self.NameScore.setBorderWidth(2)
+        self.NameScore.setVisible(False)
 
         self.TempBoard.setText(0, 0, "Player's Turn")
         self.TempBoard.setText(0, 1, "Temporary Score")
@@ -208,10 +226,12 @@ class introPage:
         self.TempBoard.setCellSpacing(10)       
         self.TempBoard.setCellPadding(10)
         self.TempBoard.setBorderWidth(2)
+        self.TempBoard.setVisible(False)
 
 
         #Adding StartButton to Dock panel
         self.DPanel.add(self.StartButton, DockPanel.EAST)
+
         self.DPanel.setCellHeight(self.StartButton, "200px")    
         self.DPanel.setCellWidth(self.StartButton, "20px") 
 
@@ -237,6 +257,8 @@ class introPage:
         #Adding Image to Dock Panel
         self.image = Image( self.DummyUrl + "images/0.png")
         self.image.setSize("200px", "300px")
+        self.image.setVisible(False)
+
         self.DPanel.add(self.image, DockPanel.CENTER)
         self.DPanel.setCellHeight(self.image, "200px")    
         self.DPanel.setCellWidth(self.image, "300px")
@@ -255,7 +277,9 @@ class introPage:
 
         #Adding BankButton and RollButton to vertical panel
         self.VPanel.add(self.RollButton) 
-        self.VPanel.add(self.BankButton)     
+        self.RollButton.setVisible(False)
+        self.VPanel.add(self.BankButton) 
+        self.BankButton.setVisible(False)    
         self.VPanel.setSpacing(10)
         #Adding Vertical panel containing BankButton and RollButton to Horizontal Panel
         self.HPanel.add(self.VPanel) 

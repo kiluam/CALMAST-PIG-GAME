@@ -18130,6 +18130,11 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			var i,$and1,$and3,$and4,VarPlayer,$add2,$add1,$add10,$add7,$add12,$add8,$add9,$and2,$add11;
 			self.CountTurn = 1;
 			if ($p['bool'](($p['bool']($and1=((($p['cmp']($p['float_int'](self['PlayerNum']['getText']()), 2))|1) == 1))?($p['bool']($and2=($p['cmp']($p['float_int'](self['PlayerNum']['getText']()), 6) < 1))?($p['bool']($and3=((($p['cmp']($p['float_int'](self['WinScore']['getText']()), 10))|1) == 1))?($p['cmp']($p['float_int'](self['WinScore']['getText']()), 100) < 1):$and3):$and2):$and1))) {
+				self['BankButton']['setVisible'](true);
+				self['RollButton']['setVisible'](true);
+				self['image']['setVisible'](true);
+				self['TempBoard']['setVisible'](true);
+				self['NameScore']['setVisible'](true);
 				self['StartButton']['setEnabled'](false);
 				self['PlayerNum']['setEnabled'](false);
 				self['WinScore']['setEnabled'](false);
@@ -18256,6 +18261,11 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			if ($p['bool'](((($p['cmp']($p['float_int'](self['NameScore']['getText']($p['getattr'](self, 'CountTurn'), 1)), $p['float_int'](self['WinScore']['getText']())))|1) == 1))) {
 				AlrtTxt = $p['__op_add']($add31=$p['__op_add']($add29='Congratulation!!! Player',$add30=$p['str']($p['getattr'](self, 'CountTurn'))),$add32=' wins !!!!');
 				$m['Window']['alert'](AlrtTxt);
+				self['BankButton']['setVisible'](false);
+				self['RollButton']['setVisible'](false);
+				self['image']['setVisible'](false);
+				self['TempBoard']['setVisible'](false);
+				self['NameScore']['setVisible'](false);
 				i = $p['float_int'](self['PlayerNum']['getText']());
 				while ($p['bool'](($p['cmp'](i, 0) == 1))) {
 					self['NameScore']['removeRow'](i);
@@ -18310,6 +18320,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['NameScore']['setCellSpacing'](10);
 			self['NameScore']['setCellPadding'](10);
 			self['NameScore']['setBorderWidth'](2);
+			self['NameScore']['setVisible'](false);
 			self['TempBoard']['setText'](0, 0, "Player's Turn");
 			self['TempBoard']['setText'](0, 1, 'Temporary Score');
 			self['TempBoard']['setText'](1, 0, 'X');
@@ -18317,7 +18328,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['TempBoard']['setCellSpacing'](10);
 			self['TempBoard']['setCellPadding'](10);
 			self['TempBoard']['setBorderWidth'](2);
-			$pyjs_kwargs_call(self['TempBoard'], 'setVisible', null, null, [{visible:null}]);
+			self['TempBoard']['setVisible'](false);
 			self['DPanel']['add']($p['getattr'](self, 'StartButton'), $p['getattr']($m['DockPanel'], 'EAST'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'StartButton'), '200px');
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'StartButton'), '20px');
@@ -18334,6 +18345,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'HPanel1'), '2000px');
 			self.image = $m['Image']($p['__op_add']($add41=$p['getattr'](self, 'DummyUrl'),$add42='images/0.png'));
 			self['image']['setSize']('200px', '300px');
+			self['image']['setVisible'](false);
 			self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'image'), '200px');
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'image'), '300px');
@@ -18344,7 +18356,9 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['DPanel']['setPadding'](2);
 			self['HPanel']['add']($p['getattr'](self, 'TempBoard'));
 			self['VPanel']['add']($p['getattr'](self, 'RollButton'));
+			self['RollButton']['setVisible'](false);
 			self['VPanel']['add']($p['getattr'](self, 'BankButton'));
+			self['BankButton']['setVisible'](false);
 			self['VPanel']['setSpacing'](10);
 			self['HPanel']['add']($p['getattr'](self, 'VPanel'));
 			self['HPanel']['setSpacing'](40);
