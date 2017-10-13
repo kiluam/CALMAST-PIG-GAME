@@ -30,4 +30,14 @@
 	font-size: 60px;
 	background-color : SkyBlue;
 }
+.TxtInstructions{
+	text-align: left;
+    list-style-type: circle;
+    font-size: 30px;
+    margin: 20px 0;
+    padding: 16px;;
+    overflow: hidden;
+    background-color: #DBF33D;
+}
+
 

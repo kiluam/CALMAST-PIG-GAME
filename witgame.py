@@ -63,16 +63,23 @@ class introPage:
         self.VarTotScore = [] #Total Score Variable
         self.CountTurn = 1 #Count to display player number in Temporary Score Board
 
+        self.TxtInstructions = HTML()
+
     def startButtonPressed(self):
        
         self.CountTurn = 1
         if int(self.PlayerNum.getText()) >= 2 and int(self.PlayerNum.getText()) <= 6 and int(self.WinScore.getText()) >= 10 and int(self.WinScore.getText()) <= 100:
             
+            self.DPanel.remove(self.TxtInstructions, DockPanel.CENTER)
             self.BankButton.setVisible(True)
             self.RollButton.setVisible(True)
-            self.image.setVisible(True)
+            # self.image.setVisible(True)
             self.TempBoard.setVisible(True)
             self.NameScore.setVisible(True)
+            self.image = Image( self.DummyUrl + "images/0.png")
+            self.image.setSize("200px", "300px")
+            self.DPanel.add(self.image, DockPanel.CENTER)
+            RootPanel().add(self.DPanel)
 
 
 
@@ -159,9 +166,11 @@ class introPage:
             AlrtTxt = "Congratulation!!! Player"+ str(self.CountTurn)  + " wins !!!!"
             Window.alert(AlrtTxt)
 
+            self.DPanel.remove(self.image, DockPanel.CENTER)
+            self.DPanel.add(self.TxtInstructions, DockPanel.CENTER)
             self.BankButton.setVisible(False)
             self.RollButton.setVisible(False)
-            self.image.setVisible(False)
+            # self.image.setVisible(False)
             self.TempBoard.setVisible(False)
             self.NameScore.setVisible(False)
 
@@ -253,15 +262,17 @@ class introPage:
 
     
 
-
+        self.TxtInstructions = HTML("<b><u><center>Instructions</center></u><ul><li>Pig is game for 2 to 6 Players.</li><li>Players take turns rolling a dice as many times as they like. </li><li>If a roll is 2, 3, 4, 5 or 6, the player adds that many points to their score for the turn. </li><li>A player may choose to end their turn at any time and 'bank' their points.</li><li>If a player rolls a 1, they lose all their unbanked points and their turn is over.</li><li>The first player to score the target or more wins.</li></ul></b>")
+        self.TxtInstructions.setStyleName("TxtInstructions")
         #Adding Image to Dock Panel
-        self.image = Image( self.DummyUrl + "images/0.png")
-        self.image.setSize("200px", "300px")
-        self.image.setVisible(False)
 
-        self.DPanel.add(self.image, DockPanel.CENTER)
-        self.DPanel.setCellHeight(self.image, "200px")    
-        self.DPanel.setCellWidth(self.image, "300px")
+        # self.image = Image( self.DummyUrl + "images/0.png")
+        # self.image.setSize("200px", "300px")
+        # self.image.setVisible(False)
+
+        self.DPanel.add(self.TxtInstructions, DockPanel.CENTER)
+        # self.DPanel.setCellHeight(self.image, "200px")    
+        # self.DPanel.setCellWidth(self.image, "300px")
 
         #Adding main scoreboard to Dock Panel
         self.DPanel.add(self.NameScore, DockPanel.WEST)

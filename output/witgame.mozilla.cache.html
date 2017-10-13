@@ -18117,6 +18117,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self.VarTempScore = 0;
 			self.VarTotScore = $p['list']([]);
 			self.CountTurn = 1;
+			self.TxtInstructions = $m['HTML']();
 			return null;
 		}
 	, 1, [null,null,['self']]);
@@ -18127,19 +18128,23 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var i,$and1,$and3,$and4,VarPlayer,$add2,$add1,$add10,$add7,$add12,$add8,$add9,$and2,$add11;
+			var $add14,$add12,i,$and1,$and3,$and4,VarPlayer,$add2,$add3,$add1,$add10,$add11,$add4,$add13,$add9,$and2;
 			self.CountTurn = 1;
 			if ($p['bool'](($p['bool']($and1=((($p['cmp']($p['float_int'](self['PlayerNum']['getText']()), 2))|1) == 1))?($p['bool']($and2=($p['cmp']($p['float_int'](self['PlayerNum']['getText']()), 6) < 1))?($p['bool']($and3=((($p['cmp']($p['float_int'](self['WinScore']['getText']()), 10))|1) == 1))?($p['cmp']($p['float_int'](self['WinScore']['getText']()), 100) < 1):$and3):$and2):$and1))) {
+				self['DPanel']['remove']($p['getattr'](self, 'TxtInstructions'), $p['getattr']($m['DockPanel'], 'CENTER'));
 				self['BankButton']['setVisible'](true);
 				self['RollButton']['setVisible'](true);
-				self['image']['setVisible'](true);
 				self['TempBoard']['setVisible'](true);
 				self['NameScore']['setVisible'](true);
+				self.image = $m['Image']($p['__op_add']($add1=$p['getattr'](self, 'DummyUrl'),$add2='images/0.png'));
+				self['image']['setSize']('200px', '300px');
+				self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
+				$m['RootPanel']()['add']($p['getattr'](self, 'DPanel'));
 				self['StartButton']['setEnabled'](false);
 				self['PlayerNum']['setEnabled'](false);
 				self['WinScore']['setEnabled'](false);
 				self['RollButton']['setEnabled'](true);
-				self['TempBoard']['setText'](1, 0, $p['__op_add']($add1='Player',$add2=$p['str'](1)));
+				self['TempBoard']['setText'](1, 0, $p['__op_add']($add3='Player',$add4=$p['str'](1)));
 				self['TempBoard']['setText'](1, 1, '0');
 				self['NameScore']['getRowFormatter']()['addStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 			}
@@ -18148,22 +18153,22 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 				return 0;
 			}
 			VarPlayer = function(){
-				var $iter1_nextval,$iter1_type,i,$collcomp1,$iter1_iter,$add3,$add6,$iter1_idx,$add4,$add5,$iter1_array;
+				var $add7,$iter1_nextval,$iter1_type,i,$collcomp1,$iter1_iter,$add6,$iter1_idx,$add5,$add8,$iter1_array;
 	$collcomp1 = $p['list']();
-			$iter1_iter = $p['xrange'](1, $p['__op_add']($add3=$p['float_int'](self['PlayerNum']['getText']()),$add4=1));
+			$iter1_iter = $p['xrange'](1, $p['__op_add']($add5=$p['float_int'](self['PlayerNum']['getText']()),$add6=1));
 			$iter1_nextval=$p['__iter_prepare']($iter1_iter,false);
 			while (typeof($p['__wrapped_next']($iter1_nextval).$nextval) != 'undefined') {
 				i = $iter1_nextval.$nextval;
-				$collcomp1['append']($p['__op_add']($add5='Player',$add6=$p['str'](i)));
+				$collcomp1['append']($p['__op_add']($add7='Player',$add8=$p['str'](i)));
 			}
 
 	return $collcomp1;}();
 			i = 0;
 			while ($p['bool'](($p['cmp'](i, $p['float_int'](self['PlayerNum']['getText']())) == -1))) {
-				self['NameScore']['setText']($p['__op_add']($add7=i,$add8=1), 0, VarPlayer.__getitem__(i));
-				self['NameScore']['setText']($p['__op_add']($add9=i,$add10=1), 1, '0');
+				self['NameScore']['setText']($p['__op_add']($add9=i,$add10=1), 0, VarPlayer.__getitem__(i));
+				self['NameScore']['setText']($p['__op_add']($add11=i,$add12=1), 1, '0');
 				self['VarTotScore']['append'](0);
-				i = $p['__op_add']($add11=i,$add12=1);
+				i = $p['__op_add']($add13=i,$add14=1);
 			}
 			return null;
 		}
@@ -18190,9 +18195,9 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var $add21,$add20,$add22,$mod2,$add24,$add26,$add14,$add15,$add16,$add17,$mod1,$add13,$add25,$add18,$add19,$add23;
+			var $add28,$add21,$add20,$add22,$add25,$add24,$add27,$add26,$add15,$add16,$add17,$mod1,$mod2,$add18,$add19,$add23;
 			self['DPanel']['remove']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
-			self.image = $m['Image']($p['__op_add']($add17=$p['__op_add']($add15=$p['__op_add']($add13=$p['getattr'](self, 'DummyUrl'),$add14='images/'),$add16=$p['str']($m['DiceInstance'])),$add18='.png'));
+			self.image = $m['Image']($p['__op_add']($add19=$p['__op_add']($add17=$p['__op_add']($add15=$p['getattr'](self, 'DummyUrl'),$add16='images/'),$add18=$p['str']($m['DiceInstance'])),$add20='.png'));
 			self['image']['setSize']('300px', '300px');
 			self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'image'), '300px');
@@ -18200,7 +18205,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			$m['RootPanel']()['add']($p['getattr'](self, 'DPanel'));
 			self['timer']['cancel']();
 			if ($p['bool'](!$p['op_eq']($m['DiceInstance'], 1))) {
-				self['TempBoard']['setText'](1, 1, $p['__op_add']($add19=$m['DiceInstance'],$add20=$p['float_int'](self['TempBoard']['getText'](1, 1))));
+				self['TempBoard']['setText'](1, 1, $p['__op_add']($add21=$m['DiceInstance'],$add22=$p['float_int'](self['TempBoard']['getText'](1, 1))));
 				self['BankButton']['setEnabled'](true);
 				self['RollButton']['setEnabled'](true);
 			}
@@ -18208,17 +18213,17 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 				self['NameScore']['getRowFormatter']()['removeStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				self['RollButton']['setEnabled'](false);
 				self['timerRButton']['schedule'](1500);
-				self.CountTurn = $p['__op_add']($add21=$p['getattr'](self, 'CountTurn'),$add22=1);
+				self.CountTurn = $p['__op_add']($add23=$p['getattr'](self, 'CountTurn'),$add24=1);
 				if ($p['bool']($p['op_eq']((typeof ($mod1=$p['getattr'](self, 'CountTurn'))==typeof ($mod2=$p['float_int'](self['PlayerNum']['getText']())) && typeof $mod1=='number'?
 					(($mod1=$mod1%$mod2)<0&&$mod2>0?$mod1+$mod2:$mod1):
 					$p['op_mod']($mod1,$mod2)), 1))) {
 					self.CountTurn = 1;
-					self['TempBoard']['setText'](1, 0, $p['__op_add']($add23='Player',$add24=$p['str']($p['getattr'](self, 'CountTurn'))));
+					self['TempBoard']['setText'](1, 0, $p['__op_add']($add25='Player',$add26=$p['str']($p['getattr'](self, 'CountTurn'))));
 					self['TempBoard']['setText'](1, 1, '0');
 					self['NameScore']['getRowFormatter']()['addStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				}
 				else {
-					self['TempBoard']['setText'](1, 0, $p['__op_add']($add25='Player',$add26=$p['str']($p['getattr'](self, 'CountTurn'))));
+					self['TempBoard']['setText'](1, 0, $p['__op_add']($add27='Player',$add28=$p['str']($p['getattr'](self, 'CountTurn'))));
 					self['TempBoard']['setText'](1, 1, '0');
 					self['NameScore']['getRowFormatter']()['addStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				}
@@ -18255,15 +18260,16 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var $add29,$add28,$add38,$add39,$mod4,$add32,$add33,$add31,AlrtTxt,$add37,$add27,$add35,i,$add34,$mod3,$sub2,$sub1,$add40,$add30,$add36;
+			var $add29,$add38,$add39,$mod4,$add32,$add33,$add31,AlrtTxt,$add37,$add34,$add35,$add42,i,$add41,$mod3,$sub2,$sub1,$add40,$add30,$add36;
 			self['BankButton']['setEnabled'](false);
-			self['NameScore']['setText']($p['getattr'](self, 'CountTurn'), 1, $p['__op_add']($add27=$p['float_int'](self['NameScore']['getText']($p['getattr'](self, 'CountTurn'), 1)),$add28=$p['float_int'](self['TempBoard']['getText'](1, 1))));
+			self['NameScore']['setText']($p['getattr'](self, 'CountTurn'), 1, $p['__op_add']($add29=$p['float_int'](self['NameScore']['getText']($p['getattr'](self, 'CountTurn'), 1)),$add30=$p['float_int'](self['TempBoard']['getText'](1, 1))));
 			if ($p['bool'](((($p['cmp']($p['float_int'](self['NameScore']['getText']($p['getattr'](self, 'CountTurn'), 1)), $p['float_int'](self['WinScore']['getText']())))|1) == 1))) {
-				AlrtTxt = $p['__op_add']($add31=$p['__op_add']($add29='Congratulation!!! Player',$add30=$p['str']($p['getattr'](self, 'CountTurn'))),$add32=' wins !!!!');
+				AlrtTxt = $p['__op_add']($add33=$p['__op_add']($add31='Congratulation!!! Player',$add32=$p['str']($p['getattr'](self, 'CountTurn'))),$add34=' wins !!!!');
 				$m['Window']['alert'](AlrtTxt);
+				self['DPanel']['remove']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
+				self['DPanel']['add']($p['getattr'](self, 'TxtInstructions'), $p['getattr']($m['DockPanel'], 'CENTER'));
 				self['BankButton']['setVisible'](false);
 				self['RollButton']['setVisible'](false);
-				self['image']['setVisible'](false);
 				self['TempBoard']['setVisible'](false);
 				self['NameScore']['setVisible'](false);
 				i = $p['float_int'](self['PlayerNum']['getText']());
@@ -18280,7 +18286,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 				self['BankButton']['setEnabled'](false);
 				self['NameScore']['getRowFormatter']()['removeStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				self['DPanel']['remove']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
-				self.image = $m['Image']($p['__op_add']($add33=$p['getattr'](self, 'DummyUrl'),$add34='images/0.png'));
+				self.image = $m['Image']($p['__op_add']($add35=$p['getattr'](self, 'DummyUrl'),$add36='images/0.png'));
 				self['image']['setSize']('200px', '300px');
 				self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
 				self['DPanel']['setCellHeight']($p['getattr'](self, 'image'), '200px');
@@ -18289,17 +18295,17 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			}
 			else {
 				self['NameScore']['getRowFormatter']()['removeStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
-				self.CountTurn = $p['__op_add']($add35=$p['getattr'](self, 'CountTurn'),$add36=1);
+				self.CountTurn = $p['__op_add']($add37=$p['getattr'](self, 'CountTurn'),$add38=1);
 				if ($p['bool']($p['op_eq']((typeof ($mod3=$p['getattr'](self, 'CountTurn'))==typeof ($mod4=$p['float_int'](self['PlayerNum']['getText']())) && typeof $mod3=='number'?
 					(($mod3=$mod3%$mod4)<0&&$mod4>0?$mod3+$mod4:$mod3):
 					$p['op_mod']($mod3,$mod4)), 1))) {
 					self.CountTurn = 1;
-					self['TempBoard']['setText'](1, 0, $p['__op_add']($add37='Player',$add38=$p['str']($p['getattr'](self, 'CountTurn'))));
+					self['TempBoard']['setText'](1, 0, $p['__op_add']($add39='Player',$add40=$p['str']($p['getattr'](self, 'CountTurn'))));
 					self['TempBoard']['setText'](1, 1, '0');
 					self['NameScore']['getRowFormatter']()['addStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				}
 				else {
-					self['TempBoard']['setText'](1, 0, $p['__op_add']($add39='Player',$add40=$p['str']($p['getattr'](self, 'CountTurn'))));
+					self['TempBoard']['setText'](1, 0, $p['__op_add']($add41='Player',$add42=$p['str']($p['getattr'](self, 'CountTurn'))));
 					self['TempBoard']['setText'](1, 1, '0');
 					self['NameScore']['getRowFormatter']()['addStyleName']($p['getattr'](self, 'CountTurn'), 'Rows');
 				}
@@ -18314,7 +18320,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			} else {
 				var self = arguments[0];
 			}
-			var Txt,Txt1,$add41,$add42;
+			var Txt,Txt1;
 			self['NameScore']['setText'](0, 0, 'Player ID');
 			self['NameScore']['setText'](0, 1, 'Score');
 			self['NameScore']['setCellSpacing'](10);
@@ -18343,12 +18349,9 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['DPanel']['add']($p['getattr'](self, 'HPanel1'), $p['getattr']($m['DockPanel'], 'NORTH'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'HPanel1'), '30px');
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'HPanel1'), '2000px');
-			self.image = $m['Image']($p['__op_add']($add41=$p['getattr'](self, 'DummyUrl'),$add42='images/0.png'));
-			self['image']['setSize']('200px', '300px');
-			self['image']['setVisible'](false);
-			self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
-			self['DPanel']['setCellHeight']($p['getattr'](self, 'image'), '200px');
-			self['DPanel']['setCellWidth']($p['getattr'](self, 'image'), '300px');
+			self.TxtInstructions = $m['HTML']("<b><u><center>Instructions</center></u><ul><li>Pig is game for 2 to 6 Players.</li><li>Players take turns rolling a dice as many times as they like. </li><li>If a roll is 2, 3, 4, 5 or 6, the player adds that many points to their score for the turn. </li><li>A player may choose to end their turn at any time and 'bank' their points.</li><li>If a player rolls a 1, they lose all their unbanked points and their turn is over.</li><li>The first player to score the target or more wins.</li></ul></b>");
+			self['TxtInstructions']['setStyleName']('TxtInstructions');
+			self['DPanel']['add']($p['getattr'](self, 'TxtInstructions'), $p['getattr']($m['DockPanel'], 'CENTER'));
 			self['DPanel']['add']($p['getattr'](self, 'NameScore'), $p['getattr']($m['DockPanel'], 'WEST'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'NameScore'), '300px');
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'NameScore'), '100px');
