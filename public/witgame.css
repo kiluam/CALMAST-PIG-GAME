@@ -1,0 +1,32 @@
+.gwt-Button {
+	font-size: 32px;
+	background-color: White;
+	border: 2px solid #FA0828;
+}
+
+.gwt-HTML {
+	font-size: 20px;
+}
+.gwt-TextBox{
+	text-align:center;
+	width: 20%;
+	font-size: 20px;
+	border: 2px solid green;
+    border-radius: 4px;
+    margin:auto;
+}
+.NameScore{
+	font-weight: bold;
+	font-size: 30px;
+	background-color : LightGreen;
+}
+.TempBoard{
+	font-weight: bold;
+	font-size: 30px;
+	background-color : SkyBlue;
+}
+.Rows{
+	font-size: 60px;
+	background-color : SkyBlue;
+}
+
