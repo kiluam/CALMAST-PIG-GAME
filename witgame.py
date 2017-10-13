@@ -267,7 +267,6 @@ class introPage:
 
 
 
-
         RootPanel().add(self.DPanel)
 
 

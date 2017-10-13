@@ -1,5 +1,6 @@
 .gwt-Button {
 	font-size: 32px;
+	width: 100%;
 	background-color: White;
 	border: 2px solid #FA0828;
 }
