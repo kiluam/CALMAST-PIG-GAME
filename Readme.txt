@@ -1,4 +1,9 @@
-Following instructions has been tested in Ubuntu 14.04.
+To play the game, download the entire repository keeping the filesystem unchanged.
+Go to the output folder and open witgame.html. 
+Enjoy the PIG game!!!
+
+
+For modifications follow the instructions below for compiling(these instructions has been tested in Ubuntu 14.04):
 
 1. Download the stable release from http://pyjs.org/Download.html
 2. Clone this system of files and folders, place them inside the downloaded pyjs directory
