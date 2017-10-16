@@ -18080,7 +18080,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 	$m['Image'] = $p['___import___']('pyjamas.ui.Image.Image', null, null, false);
 	$m['Timer'] = $p['___import___']('pyjamas.Timer.Timer', null, null, false);
 	$m['DiceInstance'] = 0;
-	$m['introPage'] = (function(){
+	$m['IntroPage'] = (function(){
 		var $cls_definition = new Object();
 		var $method;
 		$cls_definition.__module__ = 'witgame';
@@ -18098,13 +18098,13 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self.HPanel1 = $m['HorizontalPanel']();
 			self.image = $m['Image']();
 			self.DummyUrl = self['image']['getUrl']();
-			self.timer = $pyjs_kwargs_call(null, $m['Timer'], null, null, [{notify:$p['getattr'](self, 'stillImage')}]);
-			self.timerRButton = $pyjs_kwargs_call(null, $m['Timer'], null, null, [{notify:$p['getattr'](self, 'oneAlert')}]);
-			self.RollButton = $m['Button']('Roll', $p['getattr'](self, 'rollButtonPressed'));
+			self.timer = $pyjs_kwargs_call(null, $m['Timer'], null, null, [{notify:$p['getattr'](self, 'StillImage')}]);
+			self.timerRButton = $pyjs_kwargs_call(null, $m['Timer'], null, null, [{notify:$p['getattr'](self, 'OneAlert')}]);
+			self.RollButton = $m['Button']('Roll', $p['getattr'](self, 'RollButtonPressed'));
 			self['RollButton']['setEnabled'](false);
-			self.BankButton = $m['Button']('Bank', $p['getattr'](self, 'bankButtonPressed'));
+			self.BankButton = $m['Button']('Bank', $p['getattr'](self, 'BankButtonPressed'));
 			self['BankButton']['setEnabled'](false);
-			self.StartButton = $m['Button']('Start', $p['getattr'](self, 'startButtonPressed'));
+			self.StartButton = $m['Button']('Start', $p['getattr'](self, 'StartButtonPressed'));
 			self['StartButton']['setEnabled'](true);
 			self.PlayerNum = $m['TextBox']();
 			self.WinScore = $m['TextBox']();
@@ -18122,7 +18122,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 		}
 	, 1, [null,null,['self']]);
 		$cls_definition['__init__'] = $method;
-		$method = $pyjs__bind_method2('startButtonPressed', function() {
+		$method = $pyjs__bind_method2('StartButtonPressed', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18173,8 +18173,8 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['startButtonPressed'] = $method;
-		$method = $pyjs__bind_method2('oneAlert', function() {
+		$cls_definition['StartButtonPressed'] = $method;
+		$method = $pyjs__bind_method2('OneAlert', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18188,8 +18188,8 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['oneAlert'] = $method;
-		$method = $pyjs__bind_method2('stillImage', function() {
+		$cls_definition['OneAlert'] = $method;
+		$method = $pyjs__bind_method2('StillImage', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18231,8 +18231,8 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['stillImage'] = $method;
-		$method = $pyjs__bind_method2('rollButtonPressed', function() {
+		$cls_definition['StillImage'] = $method;
+		$method = $pyjs__bind_method2('RollButtonPressed', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18253,8 +18253,8 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['rollButtonPressed'] = $method;
-		$method = $pyjs__bind_method2('bankButtonPressed', function() {
+		$cls_definition['RollButtonPressed'] = $method;
+		$method = $pyjs__bind_method2('BankButtonPressed', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18313,8 +18313,8 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['bankButtonPressed'] = $method;
-		$method = $pyjs__bind_method2('onGameLoad', function() {
+		$cls_definition['BankButtonPressed'] = $method;
+		$method = $pyjs__bind_method2('OnGameLoad', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
 			} else {
@@ -18372,15 +18372,15 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			return null;
 		}
 	, 1, [null,null,['self']]);
-		$cls_definition['onGameLoad'] = $method;
+		$cls_definition['OnGameLoad'] = $method;
 		var $bases = new Array(pyjslib.object);
 		var $data = $p['dict']();
 		for (var $item in $cls_definition) { $data.__setitem__($item, $cls_definition[$item]); }
-		return $p['_create_class']('introPage', $p['tuple']($bases), $data);
+		return $p['_create_class']('IntroPage', $p['tuple']($bases), $data);
 	})();
 	if ($p['bool']($p['op_eq']((typeof __name__ == "undefined"?$m.__name__:__name__), '__main__'))) {
-		$m['c'] = $m['introPage']();
-		$m['c']['onGameLoad']();
+		$m['c'] = $m['IntroPage']();
+		$m['c']['OnGameLoad']();
 	}
 	return this;
 }; /* end witgame */

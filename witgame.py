@@ -22,7 +22,7 @@ from pyjamas.Timer import Timer
 # WinScore = 0
 DiceInstance = 0
 
-class introPage:
+class IntroPage:
 
     def __init__(self):
         self.DPanel = DockPanel(HorizontalAlignment = HasAlignment.ALIGN_CENTER,
@@ -35,16 +35,16 @@ class introPage:
 
         self.image=Image()#Creates the Image instance to embed the images of dice
         self.DummyUrl = self.image.getUrl() 
-        self.timer = Timer(notify=self.stillImage)#Timer for display of gif animation
-        self.timerRButton =  Timer(notify=self.oneAlert)#Timer for controlling states of Roll button 
+        self.timer = Timer(notify=self.StillImage)#Timer for display of gif animation
+        self.timerRButton =  Timer(notify=self.OneAlert)#Timer for controlling states of Roll button 
                                                         #whenever the output of the dice is 1
 
-        self.RollButton = Button("Roll", getattr(self, "rollButtonPressed")) #Initially Disabled 
+        self.RollButton = Button("Roll", getattr(self, "RollButtonPressed")) #Initially Disabled 
         self.RollButton.setEnabled(False)
-        self.BankButton = Button("Bank", getattr(self, "bankButtonPressed")) #Initially Disabled 
+        self.BankButton = Button("Bank", getattr(self, "BankButtonPressed")) #Initially Disabled 
         self.BankButton.setEnabled(False)
         #The start button controls both the number players as well the winning score
-        self.StartButton = Button("Start", getattr(self, "startButtonPressed")) #Intially Enabled
+        self.StartButton = Button("Start", getattr(self, "StartButtonPressed")) #Intially Enabled
         self.StartButton.setEnabled(True)
 
 
@@ -65,7 +65,7 @@ class introPage:
 
         self.TxtInstructions = HTML()
 
-    def startButtonPressed(self):
+    def StartButtonPressed(self):
        
         self.CountTurn = 1
         if int(self.PlayerNum.getText()) >= 2 and int(self.PlayerNum.getText()) <= 6 and int(self.WinScore.getText()) >= 10 and int(self.WinScore.getText()) <= 100:
@@ -105,14 +105,14 @@ class introPage:
             self.VarTotScore.append(0) #m*1 vector of zeros indicating the initial scores 
             i += 1
 
-    def oneAlert(self):
+    def OneAlert(self):
         AlrtTxt = " Sorry, your turn is over"
         Window.alert(AlrtTxt)
         self.timerRButton.cancel()
         self.RollButton.setEnabled(True)
 
 
-    def stillImage(self):
+    def StillImage(self):
 
         self.DPanel.remove(self.image, DockPanel.CENTER)
         self.image = Image( self.DummyUrl + "images/" +str(DiceInstance)+".png")
@@ -142,7 +142,7 @@ class introPage:
                 self.NameScore.getRowFormatter().addStyleName(self.CountTurn,"Rows");
         
 
-    def rollButtonPressed(self):
+    def RollButtonPressed(self):
         global DiceInstance
         DiceInstance = random.randint(1, 6) # value turned after rolling the dice
 
@@ -157,7 +157,7 @@ class introPage:
         self.RollButton.setEnabled(False)
         self.timer.schedule(3000)
            
-    def bankButtonPressed(self):
+    def BankButtonPressed(self):
         self.BankButton.setEnabled(False)
         self.NameScore.setText(self.CountTurn, 1,
             int(self.NameScore.getText(self.CountTurn, 1)) + int(self.TempBoard.getText(1,
@@ -218,7 +218,7 @@ class introPage:
                 self.TempBoard.setText(1, 1, "0")
                 self.NameScore.getRowFormatter().addStyleName(self.CountTurn,"Rows");
 
-    def onGameLoad(self):
+    def OnGameLoad(self):
         self.NameScore.setText(0, 0, "Player ID")
         self.NameScore.setText(0, 1, "Score")
 
@@ -306,8 +306,8 @@ class introPage:
 
 
 if __name__ == "__main__":
-    c = introPage()
-    c.onGameLoad()
+    c = IntroPage()
+    c.OnGameLoad()
 
 
 
