@@ -13895,11 +13895,15 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 	$m['HTML'] = $p['___import___']('pyjamas.ui.HTML.HTML', null, null, false);
 	$m['Image'] = $p['___import___']('pyjamas.ui.Image.Image', null, null, false);
 	$m['Timer'] = $p['___import___']('pyjamas.Timer.Timer', null, null, false);
-	$m['DiceInstance'] = 0;
 	$m['IntroPage'] = (function(){
 		var $cls_definition = new Object();
 		var $method;
 		$cls_definition.__module__ = 'witgame';
+		$cls_definition['DiceInstance'] = 0;
+		$cls_definition['VarTempScore'] = 0;
+		$cls_definition['VarTotScore'] = $p['list']([]);
+		$cls_definition['CountTurn'] = 1;
+		$cls_definition['aaa'] = 9;
 		$method = $pyjs__bind_method2('__init__', function() {
 			if (this.__is_instance__ === true) {
 				var self = this;
@@ -13930,9 +13934,6 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			self['NameScore']['setStyleName']('NameScore');
 			self.TempBoard = $m['FlexTable']();
 			self['TempBoard']['setStyleName']('TempBoard');
-			self.VarTempScore = 0;
-			self.VarTotScore = $p['list']([]);
-			self.CountTurn = 1;
 			self.TxtInstructions = $m['HTML']();
 			return null;
 		}
@@ -14013,15 +14014,15 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 			}
 			var $add28,$add21,$add20,$add22,$add25,$add24,$add27,$add26,$add15,$add16,$add17,$mod1,$mod2,$add18,$add19,$add23;
 			self['DPanel']['remove']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
-			self.image = $m['Image']($p['__op_add']($add19=$p['__op_add']($add17=$p['__op_add']($add15=$p['getattr'](self, 'DummyUrl'),$add16='images/'),$add18=$p['str']($m['DiceInstance'])),$add20='.png'));
+			self.image = $m['Image']($p['__op_add']($add19=$p['__op_add']($add17=$p['__op_add']($add15=$p['getattr'](self, 'DummyUrl'),$add16='images/'),$add18=$p['str']($p['getattr'](self, 'DiceInstance'))),$add20='.png'));
 			self['image']['setSize']('300px', '300px');
 			self['DPanel']['add']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
 			self['DPanel']['setCellHeight']($p['getattr'](self, 'image'), '300px');
 			self['DPanel']['setCellWidth']($p['getattr'](self, 'image'), '600px');
 			$m['RootPanel']()['add']($p['getattr'](self, 'DPanel'));
 			self['timer']['cancel']();
-			if ($p['bool'](!$p['op_eq']($m['DiceInstance'], 1))) {
-				self['TempBoard']['setText'](1, 1, $p['__op_add']($add21=$m['DiceInstance'],$add22=$p['float_int'](self['TempBoard']['getText'](1, 1))));
+			if ($p['bool'](!$p['op_eq']($p['getattr'](self, 'DiceInstance'), 1))) {
+				self['TempBoard']['setText'](1, 1, $p['__op_add']($add21=$p['getattr'](self, 'DiceInstance'),$add22=$p['float_int'](self['TempBoard']['getText'](1, 1))));
 				self['BankButton']['setEnabled'](true);
 				self['RollButton']['setEnabled'](true);
 			}
@@ -14055,7 +14056,7 @@ $pyjs.loaded_modules['witgame'] = function (__mod_name__) {
 				var self = arguments[0];
 			}
 
-			$m['DiceInstance'] = $m['random']['randint'](1, 6);
+			self.DiceInstance = $m['random']['randint'](1, 6);
 			self['DPanel']['remove']($p['getattr'](self, 'image'), $p['getattr']($m['DockPanel'], 'CENTER'));
 			self.image = $m['Image']('http://www.animatedimages.org/data/media/710/animated-dice-image-0064.gif');
 			self['image']['setSize']('100px', '200px');
